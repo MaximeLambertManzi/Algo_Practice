@@ -1,0 +1,23 @@
+"""
+
+from robot import *  
+    
+for loop in range(9):
+  haut()    
+
+for loop in range(4):
+  droite()
+  for loop in range(8):
+    bas()
+  droite()
+  for loop in range(8):
+    haut()
+
+droite()
+for loop in range(9):
+  bas()
+
+for loop in range(9):
+  gauche()
+    
+"""
