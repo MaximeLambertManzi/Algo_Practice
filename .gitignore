@@ -1,3 +1,4 @@
 /.vscode
+/.venv
 /temp.py
 /temp.sql
