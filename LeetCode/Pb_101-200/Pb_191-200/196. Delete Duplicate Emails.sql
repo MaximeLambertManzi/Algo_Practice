@@ -42,19 +42,12 @@
  | 2  | bob@example.com  |
  +----+------------------+
  Explanation: john@example.com is repeated two times. We keep the row with the smallest Id = 1. */
-DELETE FROM
-    person
-WHERE
-    id NOT IN (
-        SELECT
-            *
-        FROM
-            (
-                SELECT
-                    MIN(id)
-                FROM
-                    person p1
-                GROUP BY
-                    email
-            ) AS Tmp
-    )
+DELETE FROM person
+WHERE id NOT IN (
+                SELECT *
+                FROM (
+                                SELECT MIN(id)
+                                FROM person p1
+                                GROUP BY email
+                        ) AS Tmp
+        )

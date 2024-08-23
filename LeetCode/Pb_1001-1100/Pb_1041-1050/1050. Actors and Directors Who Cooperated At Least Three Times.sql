@@ -38,13 +38,9 @@
  | 1           | 1           |
  +-------------+-------------+
  Explanation: The only pair is (1, 1) where they cooperated exactly 3 times. */
-SELECT
-    actor_id,
+SELECT actor_id,
     director_id
-FROM
-    ActorDirector
-GROUP BY
-    actor_id,
+FROM ActorDirector
+GROUP BY actor_id,
     director_id
-HAVING
-    Count(*) > 2
+HAVING COUNT(*) > 2

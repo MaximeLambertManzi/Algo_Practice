@@ -41,12 +41,8 @@
  The followers of 0 are {1}
  The followers of 1 are {0}
  The followers of 2 are {0,1} */
-SELECT
-    user_id,
+SELECT user_id,
     COUNT(*) AS followers_count
-FROM
-    Followers
-GROUP BY
-    user_id
-ORDER BY
-    user_id ASC
+FROM Followers
+GROUP BY user_id
+ORDER BY user_id ASC

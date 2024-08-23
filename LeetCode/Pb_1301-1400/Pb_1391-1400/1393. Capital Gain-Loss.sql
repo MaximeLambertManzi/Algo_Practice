@@ -68,31 +68,22 @@
  ('Buy' --> 'Sell') operation =
  (1010 - 10) + (500 - 1000) + (10000 - 1000)=
  1000 - 500 + 9000 = 9500$. */
-SELECT
-    stock_name,
+SELECT stock_name,
     SUM(capital_gain) AS capital_gain_loss
-FROM
-    (
-        SELECT
-            stock_name,
+FROM (
+        SELECT stock_name,
             CASE
                 WHEN operation LIKE 'Buy' THEN - capital
                 ELSE capital
             END capital_gain
-        FROM
-            (
-                SELECT
-                    stock_name,
+        FROM (
+                SELECT stock_name,
                     operation,
                     SUM(price) AS capital
-                FROM
-                    Stocks
-                GROUP BY
-                    stock_name,
+                FROM Stocks
+                GROUP BY stock_name,
                     operation
-                ORDER BY
-                    stock_name
+                ORDER BY stock_name
             ) t
     ) t2
-GROUP BY
-    stock_name
+GROUP BY stock_name

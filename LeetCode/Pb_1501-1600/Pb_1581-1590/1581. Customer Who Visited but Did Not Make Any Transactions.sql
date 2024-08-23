@@ -78,19 +78,12 @@
  As we can see, users with IDs 30 and 96 visited the mall
  one time without making any transactions.
  Also, user 54 visited the mall twice and did not make any transactions. */
-SELECT
-    customer_id,
-    count(*) AS count_no_trans
-FROM
-    Visits
-WHERE
-    visit_id NOT IN (
-        SELECT
-            DISTINCT visit_id
-        FROM
-            Transactions
+SELECT customer_id,
+    COUNT(*) AS count_no_trans
+FROM Visits
+WHERE visit_id NOT IN (
+        SELECT DISTINCT visit_id
+        FROM Transactions
     )
-GROUP BY
-    customer_id
-ORDER BY
-    count_no_trans DESC
+GROUP BY customer_id
+ORDER BY count_no_trans DESC

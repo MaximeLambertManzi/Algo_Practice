@@ -42,10 +42,8 @@
  Explanation: 
  (1, A) and (3, C) were changed from 'm' to 'f'.
  (2, B) and (4, D) were changed from 'f' to 'm'. */
-UPDATE
-    salary
-SET
-    sex = CASE
+UPDATE salary
+SET sex = CASE
         WHEN sex = 'm' THEN 'f'
         WHEN sex = 'f' THEN 'm'
     END

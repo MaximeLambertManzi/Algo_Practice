@@ -96,18 +96,12 @@
  it is easy to tell that only salesperson John and Pam
  have sales to company RED, so we report all the other names
  in the table salesperson. */
-SELECT
-    name
-FROM
-    SalesPerson
-WHERE
-    name NOT IN (
-        SELECT
-            SalesPerson.name
-        FROM
-            SalesPerson
+SELECT name
+FROM SalesPerson
+WHERE name NOT IN (
+        SELECT SalesPerson.name
+        FROM SalesPerson
             JOIN Orders ON SalesPerson.sales_id = Orders.sales_id
             JOIN Company ON Orders.com_id = Company.com_id
-        WHERE
-            Company.name LIKE 'RED'
+        WHERE Company.name LIKE 'RED'
     )

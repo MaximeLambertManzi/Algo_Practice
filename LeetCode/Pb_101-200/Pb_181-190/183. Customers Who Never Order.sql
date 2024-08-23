@@ -55,10 +55,7 @@
  | Henry     |
  | Max       |
  +-----------+ */
-SELECT
-    name AS customers
-FROM
-    customers
+SELECT name AS customers
+FROM customers
     LEFT JOIN orders ON customers.id = orders.customerid
-WHERE
-    customerid IS NULL
+WHERE customerid IS NULL

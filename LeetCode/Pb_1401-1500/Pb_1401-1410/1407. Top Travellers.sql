@@ -76,17 +76,13 @@
  Bob, Jonathan, Alex, and Alice have only one ride
  and we just order them by the total distances of the ride.
  Donald did not have any rides, the distance traveled by him is 0. */
-SELECT
-    Users.name,
+SELECT Users.name,
     CASE
         WHEN SUM(Rides.distance) IS NULL THEN 0
         ELSE SUM(Rides.distance)
     END travelled_distance
-FROM
-    Users
+FROM Users
     LEFT JOIN Rides ON Users.id = Rides.user_id
-GROUP BY
-    Users.id
-ORDER BY
-    travelled_distance DESC,
+GROUP BY Users.id
+ORDER BY travelled_distance DESC,
     Users.name

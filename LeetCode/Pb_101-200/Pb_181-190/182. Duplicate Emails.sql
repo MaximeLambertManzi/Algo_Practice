@@ -35,11 +35,7 @@
  | a@b.com |
  +---------+
  Explanation: a@b.com is repeated two times. */
-SELECT
-    email
-FROM
-    Person
-GROUP BY
-    email
-HAVING
-    COUNT(*) > 1
+SELECT email
+FROM Person
+GROUP BY email
+HAVING COUNT(*) > 1

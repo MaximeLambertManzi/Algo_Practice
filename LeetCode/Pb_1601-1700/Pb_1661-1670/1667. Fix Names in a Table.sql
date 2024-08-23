@@ -34,13 +34,10 @@
  | 1       | Alice |
  | 2       | Bob   |
  +---------+-------+ */
-SELECT
-    user_id,
+SELECT user_id,
     Concat(
         Upper(Substr(name, 1, 1)),
         Lower(Substr(name, 2))
     ) AS name
-FROM
-    users
-ORDER BY
-    user_id
+FROM users
+ORDER BY user_id

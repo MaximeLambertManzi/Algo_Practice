@@ -44,19 +44,12 @@
  
  Follow up: What if more than one customer has the largest number of orders,
  can you find all the customer_number in this case? */
-SELECT
-    customer_number
-FROM
-    (
-        SELECT
-            customer_number,
+SELECT customer_number
+FROM (
+        SELECT customer_number,
             COUNT(*) AS num_orders
-        FROM
-            Orders
-        GROUP BY
-            customer_number
-        ORDER BY
-            num_orders DESC
+        FROM Orders
+        GROUP BY customer_number
+        ORDER BY num_orders DESC
     ) AS temp
-LIMIT
-    1
+LIMIT 1

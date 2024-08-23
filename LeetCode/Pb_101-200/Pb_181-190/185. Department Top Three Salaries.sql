@@ -80,27 +80,20 @@
  - Henry earns the highest salary
  - Sam earns the second-highest salary
  - There is no third-highest salary as there are only two employees */
-SELECT
-    Department,
+SELECT Department,
     Employee,
     Salary
-FROM
-    (
-        SELECT
-            d.name AS Department,
+FROM (
+        SELECT d.name AS Department,
             e.name AS Employee,
             e.salary AS Salary,
             DENSE_RANK() OVER (
                 PARTITION BY d.name
-                ORDER BY
-                    e.salary DESC
+                ORDER BY e.salary DESC
             ) AS Rnk
-        FROM
-            Employee e
+        FROM Employee e
             JOIN Department d ON e.departmentId = d.id
-        ORDER BY
-            d.name,
+        ORDER BY d.name,
             e.salary DESC
     ) AS temp
-WHERE
-    Rnk <= 3
+WHERE Rnk <= 3

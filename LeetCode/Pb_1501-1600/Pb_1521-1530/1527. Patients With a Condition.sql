@@ -40,12 +40,9 @@
  | 4          | George       | ACNE DIAB100 | 
  +------------+--------------+--------------+
  Explanation: Bob and George both have a condition that starts with DIAB1. */
-SELECT
-    patient_id,
+SELECT patient_id,
     patient_name,
     conditions
-FROM
-    patients
-WHERE
-    conditions LIKE '%DIAB1%'
+FROM patients
+WHERE conditions LIKE '%DIAB1%'
     OR conditions LIKE '% DIAB1%'

@@ -69,26 +69,18 @@
  +----+-------+
  Explanation: If there is only one node on the tree,
  you only need to output its root attributes. */
-SELECT
-    id,
+SELECT id,
     CASE
         WHEN id = (
-            SELECT
-                id
-            FROM
-                tree
-            WHERE
-                p_id IS NULL
+            SELECT id
+            FROM tree
+            WHERE p_id IS NULL
         ) THEN 'Root'
         WHEN id IN (
-            SELECT
-                DISTINCT p_id
-            FROM
-                tree
+            SELECT DISTINCT p_id
+            FROM tree
         ) THEN 'Inner'
         ELSE 'Leaf'
     END AS TYPE
-FROM
-    tree
-ORDER BY
-    id ASC
+FROM tree
+ORDER BY id ASC

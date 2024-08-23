@@ -41,10 +41,7 @@
  | 3           |
  +-------------+
  Explanation: Only products 1 and 3 are both low fat and recyclable. */
-SELECT
-	product_id
-FROM
-	Products
-WHERE
-	low_fats = 'Y'
+SELECT product_id
+FROM Products
+WHERE low_fats = 'Y'
 	AND recyclable = 'Y'

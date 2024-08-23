@@ -55,12 +55,9 @@
  Employee 2 has two events: one on day 2020-11-28
  with a total of (33 - 3) = 30,
  and one on day 2020-12-09 with a total of (74 - 47) = 27. */
-SELECT
-    event_day AS DAY,
+SELECT event_day AS DAY,
     emp_id,
     SUM(out_time) - SUM(in_time) AS total_time
-FROM
-    Employees
-GROUP BY
-    DAY,
+FROM Employees
+GROUP BY DAY,
     emp_id
